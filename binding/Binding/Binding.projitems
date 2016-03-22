@@ -33,5 +33,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)PreserveAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)..\SkiaSharp\Properties\SkiaSharpAssemblyInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Util.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SkPathEffect.cs" />
   </ItemGroup>
 </Project>

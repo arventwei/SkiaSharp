@@ -31,6 +31,8 @@ using sk_imagedecoder_t = System.IntPtr;
 using sk_imagefilter_croprect_t = System.IntPtr;
 using sk_imagefilter_t = System.IntPtr;
 using sk_colorfilter_t = System.IntPtr;
+using sk_path_effect_t = System.IntPtr;
+using sk_dash_path_effect_t = System.IntPtr;
 
 namespace SkiaSharp
 {
@@ -244,6 +246,10 @@ namespace SkiaSharp
 		public extern static IntPtr sk_paint_break_utf16_text(sk_paint_t t, [MarshalAs(UnmanagedType.LPWStr)] string text, IntPtr length, float maxWidth, out float measuredWidth);
 		[DllImport (SKIA, CallingConvention = CallingConvention.Cdecl)]
 		public extern static IntPtr sk_paint_break_text (sk_paint_t t, byte [] text, IntPtr length, float maxWidth, out float measuredWidth);
+		[DllImport (SKIA, CallingConvention = CallingConvention.Cdecl)]
+		public extern static sk_path_effect_t sk_paint_get_path_effect(sk_paint_t cpaint);
+		[DllImport (SKIA, CallingConvention = CallingConvention.Cdecl)]
+		public extern static void sk_paint_set_path_effect(sk_paint_t cpaint, sk_path_effect_t effect);
 
 
 		[DllImport(SKIA, CallingConvention = CallingConvention.Cdecl)]
@@ -649,6 +655,12 @@ namespace SkiaSharp
 		public extern static bool sk_imagedecoder_decode_memory(IntPtr buffer, IntPtr size, sk_bitmap_t bitmap, SKColorType pref, SKImageDecoderMode mode, ref SKImageDecoderFormat format);
 		[DllImport(SKIA, CallingConvention = CallingConvention.Cdecl)]
 		public extern static bool sk_imagedecoder_decode_stream(sk_stream_streamrewindable_t cstream, sk_bitmap_t bitmap, SKColorType pref, SKImageDecoderMode mode, ref SKImageDecoderFormat format);
+
+		[DllImport(SKIA, CallingConvention = CallingConvention.Cdecl)]
+		public extern static sk_dash_path_effect_t sk_dash_path_effect_create(float [] intervals, int count, float phase);
+		[DllImport(SKIA, CallingConvention = CallingConvention.Cdecl)]
+		public extern static void sk_dash_path_effect_unref (sk_dash_path_effect_t cpathEffect);
+
 	}
 }
 
